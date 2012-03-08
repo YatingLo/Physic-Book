@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+	
+	<config
+		tween_duration="0.4"
+		css_file="flashmo_251_style.css"
+		item_width="600"
+		item_height="380"
+		item_default_padding="55"
+		item_default_bgcolor="#FFFFFF"
+		item_x_spacing="100"
+		item_numbering="true"
+		side_item_count="3">
+	</config>
+	
+	<item>
+		<content><![CDATA[ ]]></content>
+	</item>
+	
+	<item>
+		<content bgcolor="#660022"><![CDATA[ ]]></content>
+	</item>
+	
+	<item>
+		<content><![CDATA[ ]]></content>
+	</item>
+	
+	<item>
+		<content bgcolor="#115566"><![CDATA[ ]]></content>
+	</item>
+	
+	<item>
+		<content><![CDATA[ ]]></content>
+	</item>
+	
+	<item>
+		<content bgcolor="#442288"><![CDATA[ ]]></content>
+	</item>
+
+</items>

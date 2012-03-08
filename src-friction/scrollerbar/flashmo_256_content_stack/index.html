@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Flash XML Content Stack</title>
+        <meta name="Keywords" content="flash xml, content stack, stack flow, html css contents, actionscript 3, flashmo, free source file" />
+        <meta name="Description" content="Flash XML Content Stack displays HTML contents dynamically loaded from the external XML file and contents are formatted by an external CSS file. This is a free Flash source file from flashmo.com" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <style type="text/css">
+        <!--
+        html, body {
+            margin: 0;
+            padding: 0;
+			height: 100%;
+			overflow: hidden;
+            color: #FFF;
+            background-color: #000;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 13px;
+        }
+        a:link, a:visited { color: #FF6; }
+        a:hover { color: #F6F; }
+        -->
+        </style>
+        <!-- embedding SWF -->
+		<script type="text/javascript" src="swfobject.js"></script>
+        <script type="text/javascript" src="swffit.js"></script>
+		<script type="text/javascript">
+			var flashvars = {};
+			flashvars.xml_file = "flashmo_256_item_list.xml";
+			var params = {};
+			params.allowfullscreen = true;
+			var attributes = {};
+			attributes.id = "flashmo_template";
+			attributes.name = "flashmo_template";
+			swfobject.embedSWF("flashmo_256_content_stack.swf", "flashmo_template", "100%", "100%", "9.0.0", false, flashvars, params, attributes);
+			swffit.fit("flashmo_template", 840, 520);
+		</script>
+        <!-- embedding SWF -->
+	</head>
+	<body>
+		<!-- flash template SWF -->
+			<div id="flashmo_template">
+            	<br /><br />
+            	<a href="http://www.flashmo.com" target="_blank">Free Flash Source Files</a>
+                <br /><br />
+                <a href="http://www.adobe.com/go/getflashplayer" target="_blank">
+                    <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+                </a>
+			</div>
+		<!-- flash template SWF --> 
+	</body>
+</html>
