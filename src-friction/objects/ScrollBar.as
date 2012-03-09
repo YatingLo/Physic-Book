@@ -12,6 +12,9 @@ package objects
 		private var drag_area:Rectangle;
 		private var scroll_area_point:Point = new Point( -141.5, -18.5);
 		private var scroller_point:Point = new Point( -134, -16);
+		private var scroller_long:Number;
+		private var max_num:Number = 0.5; //num*100
+		private var force_num:int;
 		
 		public var scroller:MovieClip;
 		public var scroll_area:MovieClip;
@@ -20,11 +23,13 @@ package objects
 		public function ScrollBar()
 		{
 			super();
-			
-			drag_area = new Rectangle(scroller_point.x, scroller_point.y, scroll_area.width - scroller.width - 14, 0); 
+			scroller_long = scroll_area.width - scroller.width - 14;
+			drag_area = new Rectangle(scroller_point.x, scroller_point.y, scroller_long, 0); 
 			scroller.addEventListener(MouseEvent.MOUSE_DOWN, scroller_drag);
 			scroller.addEventListener(MouseEvent.MOUSE_UP, scroller_drop);
-			//this.addEventListener(Event.ENTER_FRAME, on_scroll);
+			scroller.addEventListener(MouseEvent.MOUSE_MOVE, on_scroll);
+
+			this.setForceNum();
 			
 		}
 		
@@ -36,20 +41,23 @@ package objects
 		
 		function scroller_drop( me:MouseEvent ):void
 		{
+			//trace("drop");
 			me.target.stopDrag();
 			stage.removeEventListener(MouseEvent.MOUSE_UP, up);
 		}
 		
 		function up( me:MouseEvent ):void
 		{
+			//trace("up");
 			scroller.stopDrag();
 		}
 		
 		function on_scroll( e:Event ):void
 		{
-			
+			//trace("scroll");
+			this.setForceNum();
 		}
-		
+		/*
 		public function Enable():void
 		{
 			this.enabled = true;
@@ -61,9 +69,15 @@ package objects
 			this.enabled = false;
 			this.visible = false;
 		}
+		*/
+		public function setForceNum():void {
+			force_num = (scroller.x-scroller_point.x)/scroller_long/0.01*max_num;
+			this.forceNum.text = force_num.toString() + "kg";
+		}
 		
-		public function setForceNum(num:int):void {
-			this.forceNum.text = num.toString() + "kg";
+		public function getForceNum():int {
+			//trace(forceNum.text.toString());
+			return new Number(force_num.toString());
 		}
 	}
 }
