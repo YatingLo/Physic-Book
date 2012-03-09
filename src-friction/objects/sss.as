@@ -36,6 +36,7 @@ function scrolling( ct:String, ct_area:String, speed:Number ):void
 	
 	drag_area = new Rectangle(0, 0, 0, flashmo_scrollable_area.height - flashmo_scroller.height);
 	
+	//內容不多不顯示拉霸
 	if ( flashmo_content.height <= flashmo_content_area.height )
 	{
 		flashmo_scroller.visible = flashmo_scrollable_area.visible = false;
