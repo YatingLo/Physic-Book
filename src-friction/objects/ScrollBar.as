@@ -23,6 +23,8 @@ package objects
 		public function ScrollBar()
 		{
 			super();
+			scroller.x = 0;
+			force_num = 25;
 			scroller_long = scroll_area.width - scroller.width - 14;
 			drag_area = new Rectangle(scroller_point.x, scroller_point.y, scroller_long, 0); 
 			scroller.addEventListener(MouseEvent.MOUSE_DOWN, scroller_drag);
@@ -37,6 +39,8 @@ package objects
 		{
 			me.target.startDrag(false, drag_area);
 			stage.addEventListener(MouseEvent.MOUSE_UP, up);
+			
+			this.setForceNum();
 		}
 		
 		function scroller_drop( me:MouseEvent ):void

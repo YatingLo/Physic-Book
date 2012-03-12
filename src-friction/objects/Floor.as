@@ -12,6 +12,10 @@
 		public function Floor() {
 			super();
 		}
+		
+		public function goto() {
+			gotoAndStop(2);
+		}
 	}
 	
 }
