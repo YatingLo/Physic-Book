@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <application xmlns="http://ns.adobe.com/air/application/2.6">
-    <id>friction</id>
-    <versionNumber>1.0</versionNumber>
+    <id>com.csidea.friction</id>
+    <versionNumber>2.0</versionNumber>
     <filename>friction</filename>
     <description></description>
     <!-- To localize the description, use the following format for the description element.<description><text xml:lang="en">English App description goes here</text><text xml:lang="fr">French App description goes here</text><text xml:lang="ja">Japanese App description goes here</text></description>-->
@@ -23,6 +23,6 @@
     <allowBrowserInvocation>false</allowBrowserInvocation>
     <iPhone>
         <InfoAdditions><![CDATA[<key>UIDeviceFamily</key><array><string>2</string></array>]]></InfoAdditions>
-        <requestedDisplayResolution>standard</requestedDisplayResolution>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
     </iPhone>
 </application>
