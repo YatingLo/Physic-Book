@@ -61,19 +61,7 @@ package objects
 			//trace("scroll");
 			this.setForceNum();
 		}
-		/*
-		public function Enable():void
-		{
-			this.enabled = true;
-			this.visible = true;
-		}
-		
-		public function Disable():void
-		{
-			this.enabled = false;
-			this.visible = false;
-		}
-		*/
+
 		public function setForceNum():void {
 			force_num = (scroller.x-scroller_point.x)/scroller_long/0.01*max_num;
 			this.forceNum.text = force_num.toString() + "kg";
