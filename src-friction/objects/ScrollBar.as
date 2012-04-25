@@ -10,23 +10,32 @@ package objects
 	public class ScrollBar extends MovieClip
 	{
 		private var drag_area:Rectangle;
-		private var scroll_area_point:Point = new Point( -141.5, -18.5);
-		private var scroller_point:Point = new Point( -134, -16);
+		//private var scroll_area_point:Point = new Point( -141.5, -18.5);
+		//private var scroller_point:Point = new Point( -134, -16);
+		private var scroll_area_point:Point;
+		private var scroller_point:Point;
 		private var scroller_long:Number;
 		private var max_num:Number = 0.5; //num*100
 		private var force_num:int;
 		
-		public var scroller:MovieClip;
+		public var scroller:MovieClip = new MovieClip;
 		public var scroll_area:MovieClip;
 		public var forceNum:TextField;
 		
 		public function ScrollBar()
 		{
 			super();
-			scroller.x = 0;
-			force_num = 25;
+			/*
+			trace("scroller location: x=" + this.scroller.x + " y=" + this.scroller.y);
+			trace("scroller_area location: x="+this.scroll_area.x+" y="+this.scroll_area.y);
+			*設定移動珠的位置
+			*/
+			scroller.s = scroll_area.x + 5;
+			scroller.y = scroll_area.y - 0.8;
+			scroller_point = new Point(scroll_area.x + 7.5,scroll_area.y + 2);
 			scroller_long = scroll_area.width - scroller.width - 14;
-			drag_area = new Rectangle(scroller_point.x, scroller_point.y, scroller_long, 0); 
+			drag_area = new Rectangle(scroller_point.x, scroller_point.y, scroller_long, 0);
+			
 			scroller.addEventListener(MouseEvent.MOUSE_DOWN, scroller_drag);
 			scroller.addEventListener(MouseEvent.MOUSE_UP, scroller_drop);
 			scroller.addEventListener(MouseEvent.MOUSE_MOVE, on_scroll);

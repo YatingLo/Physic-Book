@@ -1,4 +1,4 @@
-package
+﻿package
 {
 	import flash.display.Sprite;
 	
@@ -6,7 +6,7 @@ package
 	{
 		public function friction()
 		{
-			
+			this.gotoAndPlay("FrictionQiz");
 		}
 	}
 }
