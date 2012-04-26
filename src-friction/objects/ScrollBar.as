@@ -6,6 +6,7 @@ package objects
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	public class ScrollBar extends MovieClip
 	{
@@ -17,6 +18,7 @@ package objects
 		private var scroller_long:Number;
 		private var max_num:Number = 0.5; //num*100
 		private var force_num:int;
+		private var formate:TextFormat = new TextFormat();
 		
 		public var scroller:MovieClip = new MovieClip;
 		public var scroll_area:MovieClip;
@@ -39,6 +41,11 @@ package objects
 			scroller.addEventListener(MouseEvent.MOUSE_DOWN, scroller_drag);
 			scroller.addEventListener(MouseEvent.MOUSE_UP, scroller_drop);
 			scroller.addEventListener(MouseEvent.MOUSE_MOVE, on_scroll);
+			
+			formate.size = 20;
+			formate.color = 0x000000;
+			formate.font = "微軟正黑體";
+			formate.align = "center";
 
 			this.setForceNum();
 			
@@ -74,6 +81,7 @@ package objects
 		public function setForceNum():void {
 			force_num = (scroller.x-scroller_point.x)/scroller_long/0.01*max_num;
 			this.forceNum.text = force_num.toString() + "kg";
+			this.forceNum.setTextFormat(formate);
 		}
 		
 		public function getForceNum():int {
