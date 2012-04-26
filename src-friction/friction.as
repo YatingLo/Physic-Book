@@ -1,12 +1,13 @@
 ﻿package
 {
-	import flash.display.Sprite;
+	import flash.display.MovieClip;
 	
-	public class friction extends Sprite
+	public class friction extends MovieClip
 	{
 		public function friction()
 		{
-			this.gotoAndPlay("FrictionQiz");
+			stop();
+			this.gotoAndStop(2);
 		}
 	}
 }
