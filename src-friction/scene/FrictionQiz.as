@@ -5,7 +5,7 @@
 	public class FrictionQiz extends MovieClip {
 		
 		public function FrictionQiz() {
-
+			stop();
 		}
 	}
 	
