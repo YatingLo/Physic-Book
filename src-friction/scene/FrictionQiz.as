@@ -13,7 +13,8 @@
 
 	
 	public class FrictionQiz extends MovieClip {
-		public var topic:Topic = new Topic();
+		//public var topic:Topic = new Topic();
+		public var topic:Topic;
 		public var btn_pre:SimpleButton;
 		public var btn_next:SimpleButton;
 		
@@ -38,8 +39,8 @@
             exams = new XML(e.target.data);
             trace(exams.topic[0].option[0]);
 			
-			this.topic.x = -99.95;
-			this.topic.y = 261.9;
+			//this.topic.x = -99.95;
+			//this.topic.y = 261.9;
 			
 			this.setQuestion(0);
 			this.btn_pre.enabled = false;
@@ -55,7 +56,7 @@
 				,exams.topic[num].option[++r % 3]
 				,exams.topic[num].option[++r % 3]
 				,exams.topic[num].option[0]);
-			this.addChild(topic);
+			//this.addChild(topic);
 		}
 		
 		public function goNext (e:MouseEvent):void{

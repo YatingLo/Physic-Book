@@ -7,7 +7,9 @@
 	
 	public class AnsOption extends Sprite {
 		
-		public var word:TextField = new TextField();
+		//public var word:TextField = new TextField();
+		public var word:TextField;
+		
 		private var formate:TextFormat = new TextFormat();
 		private var hitCube:Sprite = new Sprite();
 		private const textWidth = 180;
@@ -15,11 +17,14 @@
 		public function AnsOption() {
 			formate.size = 25;
 			formate.color = 0xffffff;
-			formate.font = "微軟正黑體";
+			formate.font = "foo";
 			formate.align = "left";
 			
 			this.word.selectable = false;
 			this.word.width = textWidth;
+			this.word.embedFonts = true;
+			//word.setTextFormat(formate);
+			//this.addChild(word);
 			
 			this.hitCube.graphics.beginFill(0xccff00);
 			this.hitCube.graphics.drawRect(0, 0, textWidth+10, 50);
@@ -33,8 +38,6 @@
 		
 		public function setText(s:String):void{
 			this.word.text = s;
-			word.setTextFormat(formate);
-			this.addChild(word);
 		}
 	}
 	

@@ -4,6 +4,7 @@
 	
 	public class friction extends MovieClip
 	{
+		
 		public function friction()
 		{
 			stop();

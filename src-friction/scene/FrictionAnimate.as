@@ -1,6 +1,7 @@
 ﻿package scene {
 	
 	import flash.display.MovieClip;
+	import flash.text.TextFormat;
 	import objects.Floor;
 	import objects.MoveBox;
 	import flash.text.TextField;
@@ -17,9 +18,12 @@
 		public var sand_btn:SimpleButton;
 		public var weightup_btn:SimpleButton;
 		public var weightdown_btn:SimpleButton;
-		public var weightnum:TextField;
 		public var play_btn:MovieClip;
+		public var weightnum:TextField;
 		public var dataShow:TextField;
+		//public var weightnum:TextField = new TextField();
+		//public var dataShow:TextField = new TextField();
+		private var formate:TextFormat = new TextFormat();
 		public var box:MoveBox;
 		
 		public function FrictionAnimate() {
@@ -33,6 +37,38 @@
 			Object(this).weightup_btn.addEventListener(MouseEvent.CLICK, weightup);
 			Object(this).weightdown_btn.addEventListener(MouseEvent.CLICK, weightdown);
 			
+			/*
+			 * 字型設定
+			
+			formate.size = 25;
+			formate.color = 0x000000;
+			formate.font = "foo";
+			formate.align = "center";
+			*/
+			this.weightnum.embedFonts = true;
+			this.dataShow.embedFonts = true;
+			
+			/*
+			 * 數字顯示的位置
+			
+			this.weightnum.width = 153.3;
+			this.weightnum.height = 84;
+			this.weightnum.x = 137.9;
+			this.weightnum.y = 654.6;
+			this.weightnum.embedFonts = true;
+			this.weightnum.text = "xxxx";
+			this.weightnum.setTextFormat(this.formate);
+			this.addChild(this.weightnum);
+			
+			this.dataShow.width = 491.8;
+			this.dataShow.height = 302.8;
+			this.dataShow.x = 53.95;
+			this.dataShow.y = 11.1;
+			this.dataShow.embedFonts = true;
+			this.weightnum.text = "xxxxx";
+			this.dataShow.setTextFormat(this.formate);
+			this.addChild(this.dataShow);
+			 */
 		}
 		
 		public function weightdown(e:MouseEvent):void {
@@ -65,6 +101,7 @@
 					box.movement();
 					//文字顯示
 					this.dataShow.text = this.setInfo(box.getForce, box.getWeight, box.getFrictionMax, box.getFrictionMove, box.getAcceleration);
+					//this.dataShow.setTextFormat(formate);
 					this.btnEndabled(this.weightdown_btn, false);
 					this.btnEndabled(this.weightup_btn, false);
 					this.btnEndabled(this.iron_btn, false);
