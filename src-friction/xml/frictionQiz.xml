@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <exam>
 	<topic>
-		<question>哪種方法不能減少摩擦力?</question>
+		<question>Q.哪種方法不能減少摩擦力?</question>
 		<option>增加接觸面積</option>
 		<option>在桌子上抹油</option>
 		<option>加輪子</option>
 	</topic>
 	<topic>
-		<question>一個箱子重100kg放置於靜摩擦係數為0.3的桌面上，至少要用多少力(kg)才能把蛋糕拖走？</question>
+		<question>Q.一個箱子重100kg放置於靜摩擦係數為0.3的桌面上，至少要用多少力(kg)才能把蛋糕拖走？</question>
 		<option>30</option>
 		<option>20</option>
 		<option>40</option>
 	</topic>
 	<topic>
-		<question>相同箱子，分別放在坡度不等的斜面上傾斜程度甲＜乙＜丙，坡面的介面、放置方式都一樣，三個物體移動的摩擦力誰最大？</question>
+		<question>Q.相同箱子，分別放在坡度不等的斜面上傾斜程度甲＜乙＜丙，坡面的介面、放置方式都一樣，三個物體移動的摩擦力誰最大？</question>
 		<option>甲＞乙＞丙</option>
 		<option>乙＞甲＞丙</option>
 		<option>丙＞乙＞甲</option>

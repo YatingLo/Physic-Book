@@ -39,13 +39,14 @@
             exams = new XML(e.target.data);
             trace(exams.topic[0].option[0]);
 			
-			//this.topic.x = -99.95;
-			//this.topic.y = 261.9;
-			
 			this.setQuestion(0);
 			this.btn_pre.enabled = false;
 			this.btn_pre.visible = false;
         }
+		
+		/*
+		 * 問題亂數排列
+		 */
 		
 		public function setQuestion(num:int):void {
 			var r:int = Math.floor(Math.random()*3);
@@ -56,8 +57,11 @@
 				,exams.topic[num].option[++r % 3]
 				,exams.topic[num].option[++r % 3]
 				,exams.topic[num].option[0]);
-			//this.addChild(topic);
 		}
+		
+		/*
+		 * 問題切換按鍵
+		 */
 		
 		public function goNext (e:MouseEvent):void{
 			if(this.currentFrame < 3) {

@@ -24,7 +24,7 @@
 			this.btn_extend.addEventListener(MouseEvent.MOUSE_UP, moveWithExtend,false, 0, true);
 			this.btn_oil.addEventListener(MouseEvent.MOUSE_UP, moveWithOil,false, 0, true);
 			this.btn_wheel.addEventListener(MouseEvent.MOUSE_UP, moveWithWheel, false, 0, true);
-			this.btn_play.addEventListener(MouseEvent.MOUSE_UP, moveOrigine,false, 0, true);
+			//this.btn_play.addEventListener(MouseEvent.MOUSE_UP, moveOrigine,false, 0, true);
 		}
 		
 		private function updateHandler(e:Event):void {

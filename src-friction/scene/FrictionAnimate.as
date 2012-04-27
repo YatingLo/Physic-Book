@@ -95,9 +95,9 @@
 				Object(this).floor.gotoAndStop(1);
 				this.box.setFloorType(1);
 		}
-				public function animateHandle(e:Event):void{
-				if(box.moveAble == true)
-				{
+		public function animateHandle(e:Event):void{
+		if(box.moveAble == true)
+		{
 					box.movement();
 					//文字顯示
 					this.dataShow.text = this.setInfo(box.getForce, box.getWeight, box.getFrictionMax, box.getFrictionMove, box.getAcceleration);
@@ -149,11 +149,11 @@
 		
 		public function setInfo(force:Number,weight:Number,maxFriction:Number,moveFriction:Number,acculation:Number):String 
 		{
-			return new String("施力：" + force + "\n" +
-							"重量：" + weight +"\n" +
-							"最大靜摩擦力：" + maxFriction+"\n" +
-							"動摩擦力：" + moveFriction+"\n" +
-							"移動加速度：" + acculation);
+			return new String("施力：" + this.trans(force, 0) + "\n" +
+							"重量：" + this.trans(weight, 0) +"\n" +
+							"最大靜摩擦力：" + this.trans(maxFriction, 1)+"\n" +
+							"動摩擦力：" + this.trans(moveFriction, 2)+"\n" +
+							"移動加速度：" + this.trans(acculation, 2));
 		}
 
 		public function btnEndabled(obj:SimpleButton, b:Boolean){
@@ -163,6 +163,21 @@
 		
 		public function setWeightNum(weight:Number):void {
 				Object(this).weightnum.text = weight.toString() + "kg";
+		}
+		
+		function trans(num, precision, splitCharacter = null)
+		{
+		  if ((precision=Math.abs(precision)) == 0)
+		  {
+			return Math.round(num);
+		  }
+
+		  if (splitCharacter == null)
+		  {
+			splitCharacter = ".";
+		  }
+
+		  return Math.round(num) + splitCharacter + Math.round(num * Math.pow(10, precision)).toString().substr(-precision);
 		}
 	}
 	

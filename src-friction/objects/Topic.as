@@ -28,7 +28,11 @@ package objects
 		}
 		
 		public function checkAns(e:MouseEvent):Boolean{
-			if(e.target.text == ans)
+			/*
+			 * 字串處理後再檢查答案
+			 */
+			var a:String = e.target.text;
+			if(a.slice(3, a.length) == ans)
 			{
 				trace("答對");
 				return true;
@@ -45,40 +49,21 @@ package objects
 			formate.color = 0xffffff;
 			formate.font = "foo";
 			formate.align = "left";
-			
-			//this.qq.x = -300;
-			//this.qq.y = -25;
+
 			this.qq.multiline = true;
 			this.qq.wordWrap = true;
 			this.qq.embedFonts = true;
 			this.qq.width = 800;
-			//this.qq.text = "這是測試文字";
-			//this.qq.setTextFormat(formate);
+			
 			this.qq.selectable = false;
-			//this.addChild(qq);
-			
-			//ans1.x = -300;
-			//ans1.y = 65;
-			ans1.setText("ssssssssssss");
-			//this.addChild(ans1);
-			
-			//ans2.x = 0;
-			//ans2.y = 65;
-			ans2.setText("ssssssssssss");
-			//this.addChild(ans2);
-			
-			//ans3.x = 300;
-			//ans3.y = 65;
-			ans3.setText("ssssssssssss");
-			//this.addChild(ans3);
 		}
 		
 		public function setTopicString(q:String = "s", a1:String = "s", a2:String = "s", a3:String = "s", a:String = "s"):void{
 			this.qq.htmlText = q;
-			//this.qq.setTextFormat(formate);
-			ans1.setText(a1);
-			ans2.setText(a2);
-			ans3.setText(a3);
+			
+			ans1.setText("1. "+a1);
+			ans2.setText("2. "+a2);
+			ans3.setText("3. "+a3);
 			ans = a;
 		}
 		
