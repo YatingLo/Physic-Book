@@ -8,7 +8,6 @@
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
-	import objects.animate;
 	import objects.FrictionQizAnimate1;
 	import objects.frictionQizAnimate2;
 	import objects.frictionQizAnimate3;
@@ -31,7 +30,6 @@
 		private var xmlLoader:URLLoader;
 		
 		public function FrictionQiz() {
-			//this.addChild(topic);
 			this.LoadXml();
 			
 			this.btn_next.addEventListener(MouseEvent.CLICK, goNext, false, 0, true);
