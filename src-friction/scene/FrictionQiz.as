@@ -1,5 +1,6 @@
 ﻿package scene {
 	
+	import adobe.utils.CustomActions;
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.events.Event;
@@ -7,6 +8,10 @@
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
+	import objects.animate;
+	import objects.FrictionQizAnimate1;
+	import objects.frictionQizAnimate2;
+	import objects.frictionQizAnimate3;
 	
 	import objects.AnsOption;
 	import objects.Topic;
@@ -17,6 +22,10 @@
 		public var topic:Topic;
 		public var btn_pre:SimpleButton;
 		public var btn_next:SimpleButton;
+		public var btn_play:SimpleButton;
+		public var mc1:FrictionQizAnimate1;
+		public var mc2:frictionQizAnimate2;
+		public var mc3:frictionQizAnimate3;
 		
 		private var exams:XML;
 		private var xmlLoader:URLLoader;
@@ -27,6 +36,7 @@
 			
 			this.btn_next.addEventListener(MouseEvent.CLICK, goNext, false, 0, true);
 			this.btn_pre.addEventListener(MouseEvent.CLICK, goPre, false, 0, true);
+			this.btn_play.addEventListener(MouseEvent.CLICK, this.move, false, 0, true);
 		}
 		
 		public function LoadXml():void {
@@ -43,6 +53,22 @@
 			this.btn_pre.enabled = false;
 			this.btn_pre.visible = false;
         }
+		
+		public function move(e:MouseEvent):void {
+			switch (this.currentFrame) 
+			{
+				case 1:
+					this.mc1.move(e);
+				break;
+				case 2:
+					this.mc2.move(e);
+				break;
+				case 3:
+					this.mc3.move(e);
+				break;
+				default:
+			}
+		}
 		
 		/*
 		 * 問題亂數排列

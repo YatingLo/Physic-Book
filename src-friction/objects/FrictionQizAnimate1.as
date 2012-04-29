@@ -12,7 +12,6 @@
 		public var btn_oil:SimpleButton;
 		public var btn_extend:SimpleButton;
 		public var btn_wheel:SimpleButton;
-		public var btn_play:SimpleButton;
 		public var moveSpeed:TextField;
 		
 		private const speedExtend:Number = 0.01; 
@@ -52,7 +51,7 @@
 			this.box.moveEnable();
 		}
 		
-		private function moveOrigine(e:MouseEvent):void {
+		public function move (e:MouseEvent):void {
 			this.box.setAcc(speedExtend, 0);
 			this.box.gotoAndStop("normal_static");
 			this.box.reset();

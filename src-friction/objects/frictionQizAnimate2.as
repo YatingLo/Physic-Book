@@ -9,17 +9,17 @@
 	public class frictionQizAnimate2 extends MovieClip {
 		
 		public var box:MoveBox;
-		public var btn_play:SimpleButton;
+		//public var btn_play:SimpleButton;
 		
 		public function frictionQizAnimate2() {
-			btn_play.addEventListener(MouseEvent.CLICK, playHandler, false, 0, true);
+			//btn_play.addEventListener(MouseEvent.CLICK, playHandler, false, 0, true);
 			this.addEventListener(Event.ENTER_FRAME, updateHandler, false, 0, true);
 			
 			this.box.setWeight(100);
 			this.box.setFrictionValue(0.25, 0.3);
 		}
 		
-		private function playHandler(e:Event):void {
+		public function move (e:MouseEvent):void {
 			if (!box.moveAble)
 			{
 				this.box.moveEnabled();

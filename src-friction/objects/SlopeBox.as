@@ -17,17 +17,13 @@
 			this.box.setWeight(25);
 			this.box.moveWide = 1600;
 			this.box.moveScale = 0.1;
-			this.addEventListener(Event.ENTER_FRAME, updateHandler, false, 0, true);
+			//this.addEventListener(Event.ENTER_FRAME, updateHandler, false, 0, true);
 		}
 		
-		private function updateHandler(e:Event):void {
+		public function updateHandler(e:Event):void {
 			this.box.move();
 			this.arrow.x += this.box.getSpeedX * this.box.moveScale;
-			if (this.box.x >= this.box.moveWide)
-			{
-				this.reset();
-				this.box.moveDisable();
-			}
+			
 		}
 		
 		public function loadArrowLocation():void {
