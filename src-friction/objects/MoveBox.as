@@ -45,7 +45,7 @@
 		
 		public function init() {
 			this.speed = 0;
-			force = 0;
+			force = 25;
 			weight = 25;
 			//紀錄原始位置
 			this.addEventListener(Event.ADDED_TO_STAGE, addStageHandler, false, 0, true);
@@ -57,6 +57,8 @@
 			formate.color = 0x000000;
 			formate.font = "foo";
 			formate.align = "left";
+			
+			this.forcebar.setForceNum();
 		}
 		
 		public function stateReset(){

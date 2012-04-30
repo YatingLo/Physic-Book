@@ -8,7 +8,7 @@ package objects
 	public class Topic extends Sprite
 	{
 		public var qq:TextField;
-		private var formate:TextFormat = new TextFormat();
+		//private var formate:TextFormat = new TextFormat();
 		public var ans1:AnsOption;
 		public var ans2:AnsOption;
 		public var ans3:AnsOption;
@@ -54,10 +54,6 @@ package objects
 		}
 		
 		public function init():void{
-			formate.size = 27;
-			formate.color = 0xffffff;
-			formate.font = "foo";
-			formate.align = "left";
 
 			this.qq.multiline = true;
 			this.qq.wordWrap = true;

@@ -1,16 +1,19 @@
 package objects
 {
 	import flash.display.MovieClip;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
+	import flash.text.AntiAliasType;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
-	import flash.text.AntiAliasType;
 	
 	public class ScrollBar extends MovieClip
 	{
+		private var hitCube:Sprite = new Sprite();
+		private const hitCubeWidth:int = 30;
 		private var drag_area:Rectangle;
 		//private var scroll_area_point:Point = new Point( -141.5, -18.5);
 		//private var scroller_point:Point = new Point( -134, -16);
@@ -39,6 +42,16 @@ package objects
 			scroller_point = new Point(scroll_area.x + 7.5,scroll_area.y + 2);
 			scroller_long = scroll_area.width - scroller.width - 14;
 			drag_area = new Rectangle(scroller_point.x, scroller_point.y + 2, scroller_long, 0);
+			/*
+			*移動珠設定觸碰面積
+			*/
+			this.hitCube.graphics.beginFill(0xccff00);
+			this.hitCube.graphics.drawRect(this.hitCubeWidth/-2, this.hitCubeWidth/-2, this.scroller.width+this.hitCubeWidth, this.scroller.height+this.hitCubeWidth);
+			this.hitCube.mouseEnabled = false;
+			this.hitCube.visible = false;
+			
+			this.scroller.addChild(hitCube);
+			this.scroller.hitArea = this.hitCube;
 			
 			scroller.addEventListener(MouseEvent.MOUSE_DOWN, scroller_drag);
 			scroller.addEventListener(MouseEvent.MOUSE_UP, scroller_drop);
