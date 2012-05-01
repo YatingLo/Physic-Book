@@ -53,11 +53,6 @@
 			//設定計算動靜摩擦力
 			this.setFrictionValue(Floor.IRONMOVE, Floor.IRONSTATIC);
 			
-			formate.size = 27;
-			formate.color = 0x000000;
-			formate.font = "foo";
-			formate.align = "left";
-			
 			this.forcebar.setForceNum();
 		}
 		

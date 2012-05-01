@@ -59,26 +59,7 @@ package objects
 			/*
 			 * 字型設定
 			 */
-			//[Embed(systemFont = "微軟正黑體", fontName = "ChineseFont", mimeType = "application/x-font", embedAsCFF = "false", unicodeRange = "U+0030-U+0039,U+002E")];
-			formate.size = 30;
-			formate.color = 0x000000;
-			formate.font = "ChineseFont";
-			formate.align = "center";
-			
 			this.forceNum.embedFonts = true;
-			/*
-			 * 數字顯示的位置
-			 
-			this.forceNum.width = 64;
-			this.forceNum.height = 44;
-			this.forceNum.x = 29.95;
-			this.forceNum.y = -101.9;
-			this.forceNum.text = "ww";
-			this.forceNum.embedFonts = true;
-			this.forceNum.setTextFormat(this.formate);
-			this.addChild(this.forceNum);
-			this.setForceNum();
-			*/
 		}
 		
 		function scroller_drag( me:MouseEvent ):void
@@ -110,7 +91,7 @@ package objects
 
 		public function setForceNum():void {
 			force_num = (scroller.x-scroller_point.x)/scroller_long/0.01*max_num;
-			this.forceNum.text = force_num.toString() + "kg";
+			this.forceNum.text = force_num.toString() + " N";
 			//this.forceNum.setTextFormat(formate);
 		}
 		

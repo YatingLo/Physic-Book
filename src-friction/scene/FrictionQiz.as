@@ -1,19 +1,21 @@
 ﻿package scene {
 	
 	import adobe.utils.CustomActions;
+	
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.events.TouchEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
-	import objects.FrictionQizAnimate1;
-	import objects.frictionQizAnimate2;
-	import objects.frictionQizAnimate3;
 	
 	import objects.AnsOption;
+	import objects.FrictionQizAnimate1;
 	import objects.Topic;
+	import objects.frictionQizAnimate2;
+	import objects.frictionQizAnimate3;
 
 	
 	public class FrictionQiz extends MovieClip {
@@ -26,13 +28,38 @@
 		public var mc2:frictionQizAnimate2;
 		public var mc3:frictionQizAnimate3;
 		
-		private var exams:XML;
+		//問答題內容設定
 		private var xmlLoader:URLLoader;
+		private var exams:XML = 
+<exam>
+	<topic>
+		<question>Q.哪種方法不能減少摩擦力?</question>
+		<option>增加接觸面積</option>
+		<option>在桌子上抹油</option>
+		<option>加輪子</option>
+	</topic>
+	<topic>
+		<question>Q.一個箱子重100kgw放置於靜摩擦係數為0.3的桌面上，至少要用多少力(N)才能把蛋糕拖走？</question>
+		<option>30</option>
+		<option>20</option>
+		<option>40</option>
+	</topic>
+	<topic>
+		<question>Q.相同箱子，分別放在坡度不等的斜面上傾斜程度甲＜乙＜丙，坡面的介面、放置方式都一樣，三個物體移動的摩擦力誰最大？</question>
+		<option>甲＞乙＞丙</option>
+		<option>乙＞甲＞丙</option>
+		<option>丙＞乙＞甲</option>
+	</topic>
+</exam>
+	/*#################################*/	
 		
 		public function FrictionQiz() {
-			this.LoadXml();
+			//this.LoadXml();
+			this.setQuestion(0);
+			this.btn_pre.enabled = false;
+			this.btn_pre.visible = false;
 			
-			this.btn_next.addEventListener(MouseEvent.CLICK, goNext, false, 0, true);
+			this.btn_next.addEventListener(TouchEvent.TOUCH_END, goNext, false, 0, true);
 			this.btn_pre.addEventListener(MouseEvent.CLICK, goPre, false, 0, true);
 			this.btn_play.addEventListener(MouseEvent.CLICK, this.move, false, 0, true);
 		}
@@ -87,7 +114,7 @@
 		 * 問題切換按鍵
 		 */
 		
-		public function goNext (e:MouseEvent):void{
+		public function goNext (e:TouchEvent):void{
 			if(this.currentFrame < 3) {
 				this.gotoAndStop(this.currentFrame + 1);
 				this.setQuestion(this.currentFrame - 1);

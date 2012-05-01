@@ -149,11 +149,11 @@
 		
 		public function setInfo(force:Number,weight:Number,maxFriction:Number,moveFriction:Number,acculation:Number):String 
 		{
-			return new String("施力：" + this.trans(force, 0) + "\n" +
-							"重量：" + this.trans(weight, 0) +"\n" +
-							"最大靜摩擦力：" + this.trans(maxFriction, 1)+"\n" +
-							"動摩擦力：" + this.trans(moveFriction, 2)+"\n" +
-							"移動加速度：" + this.trans(acculation, 2));
+			return new String("施力：" + this.trans(force, 0) + " N\n" +
+							"重量：" + this.trans(weight, 0) +" kgw\n" +
+							"最大靜摩擦力：" + this.trans(maxFriction, 1)+" N\n" +
+							"動摩擦力：" + this.trans(moveFriction, 2)+" N\n" +
+							"移動加速度：" + this.trans(acculation, 2)+" m/s2");
 		}
 
 		public function btnEndabled(obj:SimpleButton, b:Boolean){
@@ -162,7 +162,7 @@
 		}
 		
 		public function setWeightNum(weight:Number):void {
-				Object(this).weightnum.text = weight.toString() + "kg";
+				Object(this).weightnum.text = weight.toString() + " kgw";
 		}
 		
 		function trans(num, precision, splitCharacter = null)
