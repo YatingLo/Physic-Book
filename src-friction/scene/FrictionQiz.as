@@ -40,9 +40,9 @@
 	</topic>
 	<topic>
 		<question>Q.一個箱子重100kgw放置於靜摩擦係數為0.3的桌面上，至少要用多少力(N)才能把蛋糕拖走？</question>
-		<option>30</option>
-		<option>20</option>
 		<option>40</option>
+		<option>20</option>
+		<option>30</option>
 	</topic>
 	<topic>
 		<question>Q.相同箱子，分別放在坡度不等的斜面上傾斜程度甲＜乙＜丙，坡面的介面、放置方式都一樣，三個物體移動的摩擦力誰最大？</question>
@@ -58,10 +58,14 @@
 			this.setQuestion(0);
 			this.btn_pre.enabled = false;
 			this.btn_pre.visible = false;
-			
-			this.btn_next.addEventListener(TouchEvent.TOUCH_END, goNext, false, 0, true);
-			this.btn_pre.addEventListener(MouseEvent.CLICK, goPre, false, 0, true);
-			this.btn_play.addEventListener(MouseEvent.CLICK, this.move, false, 0, true);
+			//觸碰
+			//this.btn_next.addEventListener(TouchEvent.TOUCH_END, goNext, false, 0, true);
+			//this.btn_pre.addEventListener(TouchEvent.TOUCH_END, goPre, false, 0, true);
+			//this.btn_play.addEventListener(TouchEvent.TOUCH_END, this.move, false, 0, true);
+			//滑鼠
+			this.btn_next.addEventListener(MouseEvent.MOUSE_UP, goNext, false, 0, true);
+			this.btn_pre.addEventListener(MouseEvent.MOUSE_UP, goPre, false, 0, true);
+			this.btn_play.addEventListener(MouseEvent.MOUSE_UP, this.move, false, 0, true);
 		}
 		
 		public function LoadXml():void {
@@ -114,7 +118,7 @@
 		 * 問題切換按鍵
 		 */
 		
-		public function goNext (e:TouchEvent):void{
+		public function goNext (e:Event):void{
 			if(this.currentFrame < 3) {
 				this.gotoAndStop(this.currentFrame + 1);
 				this.setQuestion(this.currentFrame - 1);
@@ -131,7 +135,7 @@
 			}
 		}
 		
-		public function goPre (e:MouseEvent):void{
+		public function goPre (e:Event):void{
 			if(this.currentFrame > 1) {
 				this.gotoAndStop(this.currentFrame - 1);
 				this.setQuestion(this.currentFrame - 1);
