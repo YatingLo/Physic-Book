@@ -17,6 +17,7 @@
 			this.box.setWeight(25);
 			this.box.moveWide = 1600;
 			this.box.moveScale = 0.1;
+			this.box.gotoAndStop("2d_static");
 			//this.addEventListener(Event.ENTER_FRAME, updateHandler, false, 0, true);
 		}
 		

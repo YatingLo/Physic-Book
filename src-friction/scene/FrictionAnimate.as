@@ -29,13 +29,13 @@
 		public function FrictionAnimate() {
 			this.setWeightNum(box.getWeight);
 
-			Object(this).play_btn.addEventListener(MouseEvent.CLICK, playHandle);
+			Object(this).play_btn.addEventListener(MouseEvent.MOUSE_UP, playHandle);
 			this.box.addEventListener(Event.ENTER_FRAME, animateHandle);
-			Object(this).iron_btn.addEventListener(MouseEvent.CLICK, ironfloor);
-			Object(this).sand_btn.addEventListener(MouseEvent.CLICK, sandfloor);
-			Object(this).wood_btn.addEventListener(MouseEvent.CLICK, woodfloor);
-			Object(this).weightup_btn.addEventListener(MouseEvent.CLICK, weightup);
-			Object(this).weightdown_btn.addEventListener(MouseEvent.CLICK, weightdown);
+			Object(this).iron_btn.addEventListener(MouseEvent.MOUSE_UP, ironfloor);
+			Object(this).sand_btn.addEventListener(MouseEvent.MOUSE_UP, sandfloor);
+			Object(this).wood_btn.addEventListener(MouseEvent.MOUSE_UP, woodfloor);
+			Object(this).weightup_btn.addEventListener(MouseEvent.MOUSE_UP, weightup);
+			Object(this).weightdown_btn.addEventListener(MouseEvent.MOUSE_UP, weightdown);
 			
 			/*
 			 * 字型設定
@@ -71,27 +71,27 @@
 			 */
 		}
 		
-		public function weightdown(e:MouseEvent):void {
+		public function weightdown(e:Event):void {
 				box.weightDown();
 				this.setWeightNum(box.getWeight);
 		}
 		
-		public function weightup(e:MouseEvent):void {
+		public function weightup(e:Event):void {
 				box.weightUp();
 				this.setWeightNum(box.getWeight);
 		}
 		
-		public function woodfloor(e:MouseEvent):void {
+		public function woodfloor(e:Event):void {
 				Object(this).floor.gotoAndStop(2);
 				Object(this).box.setFloorType(2);
 		}
 		
-		public function sandfloor(e:MouseEvent):void {
+		public function sandfloor(e:Event):void {
 				Object(this).floor.gotoAndStop(3);
 				Object(this).box.setFloorType(3);
 		}
 		
-		public function ironfloor(e:MouseEvent):void {
+		public function ironfloor(e:Event):void {
 				Object(this).floor.gotoAndStop(1);
 				this.box.setFloorType(1);
 		}
@@ -123,7 +123,7 @@
 				}
 			}
 		
-		public function playHandle(e:MouseEvent):void {
+		public function playHandle(e:Event):void {
 			trace(this.play_btn.currentFrameLabel);
 			switch (play_btn.currentFrameLabel) 
 			{
@@ -151,7 +151,7 @@
 		{
 			return new String("施力：" + this.trans(force, 0) + " N\n" +
 							"重量：" + this.trans(weight, 0) +" kgw\n" +
-							"最大靜摩擦力：" + this.trans(maxFriction, 1)+" N\n" +
+							"最大靜摩擦力：" + this.trans(maxFriction, 2)+" N\n" +
 							"動摩擦力：" + this.trans(moveFriction, 2)+" N\n" +
 							"移動加速度：" + this.trans(acculation, 2)+" m/s2");
 		}
@@ -165,19 +165,18 @@
 				Object(this).weightnum.text = weight.toString() + " kgw";
 		}
 		
-		function trans(num, precision, splitCharacter = null)
+		public function trans(num, precision = 0, splitCharacter = null)
 		{
 		  if ((precision=Math.abs(precision)) == 0)
 		  {
 			return Math.round(num);
 		  }
-
 		  if (splitCharacter == null)
 		  {
 			splitCharacter = ".";
 		  }
-
-		  return Math.round(num) + splitCharacter + Math.round(num * Math.pow(10, precision)).toString().substr(-precision);
+		  return Math.floor(num) + splitCharacter + Math.floor(num * Math.pow(10, precision)).toString().substr(-precision);
+		  trace("number show:" + Math.abs(num * Math.pow(10, precision)));
 		}
 	}
 	

@@ -22,6 +22,7 @@
 		 * frictionMove:動摩擦力
 		 * frictionValeMove:動摩擦係數
 		 */
+		private var myfricton:Number = 0;
 		private var frictionMove:Number = 0;
 		private var frictionStatic:Number = 0;
 		private var frictionValueStatic:Number = 0;

@@ -12,7 +12,6 @@
 		public var forcebar:ScrollBar;
 		public var moveAble:Boolean;
 		public var outStage:Boolean;
-		//private var floorType:int;
 		
 		private var boxX:Number = 0;
 		private var boxY:Number = 0;
@@ -21,18 +20,21 @@
 		public function get getWeight():Number { return weight; };
 		private var maxWeight:Number = 50;
 		private var minWeight:Number = 5;
+		
 		private var force:Number;
 		public function get getForce():Number { return force; };
-		private var frictionStatic:Number;
-		public function get getFrictionMax():Number { return frictionStatic; };
-		private var frictionMove:Number;
-		public function get getFrictionMove():Number { return frictionMove; };
-		private var frictionStaticTrue:int = 0;
-		public function get getFriction():Number { return frictionStaticTrue; };
-		private var acceleration:Number;
-		public function get getAcceleration():Number { return acceleration; };
-		private var speed:Number;
 		
+		private var frictionStatic:Number = 0;
+		public function get getFrictionMax():Number { return frictionStatic; };
+		
+		private var frictionMove:Number = 0;
+		public function get getFrictionMove():Number { return frictionMove; };
+		
+		private var myfriction:Number = 0;
+		private var acceleration:Number = 0;
+		public function get getAcceleration():Number { return acceleration; };
+		
+		private var speed:Number;
 		private var frictionValueStatic:Number;
 		private var frictionValueMove:Number;
 		
@@ -122,7 +124,6 @@
 			this.moveAble = false;
 			this.forcebar.visible = true;
 			this.gotoAndStop(1);
-			trace("disable move");
 		}
 		
 		public function setFloorType(type:int):void {
@@ -143,33 +144,32 @@
 		public function setFrictionForce():void {
 			frictionMove = frictionValueMove * weight;
 			frictionStatic = frictionValueStatic * weight;
-			trace("set force"+ frictionMove +" static:"+ frictionStatic);
+			trace("move:" + this.frictionValueMove + "   Static:" + this.frictionValueStatic + "   weight:" + this.weight);
+			trace("frictionMove:"+ frictionMove +" frictionStatic:"+ frictionStatic);
 		}
 		
 		public function setFrictionValue(m:Number, s:Number):void {
 			frictionValueMove = m;
 			frictionValueStatic = s;
-			trace("set force value"+ m+ s);
-			trace("set force value"+ frictionValueMove+frictionValueStatic);
 		}
 		
 		public function setAcceleration():void {
-			if (force < frictionStatic)
+			if (speed > 0)
 			{
-				if (speed <= 0)
+				myfriction = this.frictionMove;
+			}
+			else
+			{
+				if (force > this.frictionStatic)
 				{
-					this.frictionStatic = force;
-					acceleration = 0;
+					myfriction = this.frictionMove;
 				}
-				else if (speed > 0)
+				else
 				{
-					acceleration = (force - frictionMove) / weight;
+					myfriction = force;
 				}
 			}
-			else {
-				this.frictionStaticTrue = this.frictionMove;
-				acceleration = (force - frictionMove) / weight;
-			}
+			acceleration = (force - this.myfriction) / weight;
 		}
 		
 		function addStageHandler(e:Event):void {	
