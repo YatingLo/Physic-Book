@@ -56,16 +56,8 @@
 		public function FrictionQiz() {
 			//this.LoadXml();
 			this.setQuestion(0);
-			this.btn_pre.enabled = false;
-			this.btn_pre.visible = false;
-			//觸碰
-			//this.btn_next.addEventListener(TouchEvent.TOUCH_END, goNext, false, 0, true);
-			//this.btn_pre.addEventListener(TouchEvent.TOUCH_END, goPre, false, 0, true);
-			//this.btn_play.addEventListener(TouchEvent.TOUCH_END, this.move, false, 0, true);
-			//滑鼠
-			this.btn_next.addEventListener(MouseEvent.MOUSE_UP, goNext, false, 0, true);
-			this.btn_pre.addEventListener(MouseEvent.MOUSE_UP, goPre, false, 0, true);
-			this.btn_play.addEventListener(MouseEvent.MOUSE_UP, this.move, false, 0, true);
+			//this.btn_pre.enabled = false;
+			//this.btn_pre.visible = false;
 		}
 		
 		public function LoadXml():void {
@@ -112,44 +104,6 @@
 				,exams.topic[num].option[++r % 3]
 				,exams.topic[num].option[++r % 3]
 				,exams.topic[num].option[0]);
-		}
-		
-		/*
-		 * 問題切換按鍵
-		 */
-		
-		public function goNext (e:Event):void{
-			if(this.currentFrame < 3) {
-				this.gotoAndStop(this.currentFrame + 1);
-				this.setQuestion(this.currentFrame - 1);
-				if(this.currentFrame == 2)
-				{
-					this.btn_pre.enabled = true;
-					this.btn_pre.visible = true;
-				}
-				else if(this.currentFrame == 3)
-				{
-					this.btn_next.enabled = false;
-					this.btn_next.visible = false;
-				}
-			}
-		}
-		
-		public function goPre (e:Event):void{
-			if(this.currentFrame > 1) {
-				this.gotoAndStop(this.currentFrame - 1);
-				this.setQuestion(this.currentFrame - 1);
-				if(this.currentFrame == 2)
-				{
-					this.btn_next.enabled = true;
-					this.btn_next.visible = true;
-				}
-				else if(this.currentFrame == 1)
-				{
-					this.btn_pre.enabled = false;
-					this.btn_pre.visible = false;
-				}
-			}
 		}
 	}
 	
