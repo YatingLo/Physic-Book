@@ -1,29 +1,30 @@
 ﻿package scene {
 	
 	import adobe.utils.CustomActions;
-	import flash.media.Sound;
-	import flash.media.SoundChannel;
-	import objects.MyButton;
+	
+	import fl.motion.MotionEvent;
 	
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.events.TouchEvent;
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.text.TextField;
 	
 	import objects.AnsOption;
 	import objects.FrictionQizAnimate1;
+	import objects.MyButton;
 	import objects.Topic;
 	import objects.frictionQizAnimate2;
 	import objects.frictionQizAnimate3;
-	import fl.motion.MotionEvent;
+	import objects.media.BackSound;
 
 	
 	public class FrictionQiz extends MovieClip {
-		//public var topic:Topic = new Topic();
 		public var topic:Topic;
 		public var btn_pre:SimpleButton;
 		public var btn_next:SimpleButton;
@@ -32,7 +33,7 @@
 		public var mc2:frictionQizAnimate2;
 		public var mc3:frictionQizAnimate3;
 		
-		private var snd:Sound = new Sound();
+		private var snd:BackSound = new BackSound();
         private var channel:SoundChannel = new SoundChannel();
 		
 		//問答題內容設定
@@ -66,7 +67,7 @@
 			
 			/*音效設定
 			 */
-			this.snd.load(new URLRequest("back_sound.MP3"));
+			//this.snd.load(new URLRequest("back_sound.MP3"));
 			this.addEventListener(Event.ADDED_TO_STAGE, addToStageHandler);
 			this.addEventListener(Event.REMOVED_FROM_STAGE, removeFromeStageHandler);
 		}

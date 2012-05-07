@@ -1,18 +1,19 @@
 ﻿package scene {
 	
 	import flash.display.MovieClip;
+	import flash.display.SimpleButton;
+	import flash.events.Event;
+	import flash.events.MouseEvent;
 	import flash.media.Sound;
 	import flash.media.SoundChannel;
 	import flash.net.URLRequest;
+	import flash.text.TextField;
 	import flash.text.TextFormat;
+	
 	import objects.Floor;
 	import objects.MoveBox;
-	import flash.text.TextField;
-	import flash.display.MovieClip;
-	import flash.events.Event;
-	import flash.events.MouseEvent;
-	import flash.display.SimpleButton;
 	import objects.MyButton;
+	import objects.media.BackSound;
 	
 	public class FrictionAnimate extends MovieClip {
 		
@@ -22,13 +23,13 @@
 		public var sand_btn:SimpleButton;
 		public var weightup_btn:SimpleButton;
 		public var weightdown_btn:SimpleButton;
-		//public var play_btn:MyButton;
+		public var play_btn:MyButton;
 		public var weightnum:TextField;
 		public var dataShow:TextField;
 		private var formate:TextFormat = new TextFormat();
 		public var box:MoveBox;
 		
-		private var snd:Sound = new Sound();
+		private var snd:BackSound = new BackSound();
         private var channel:SoundChannel = new SoundChannel();
 		
 		public function FrictionAnimate() {
@@ -45,7 +46,7 @@
 			
 			/*音效設定
 			 */
-			this.snd.load(new URLRequest("back_sound.MP3"));
+			//this.snd.load(new URLRequest("back_sound.MP3"));
 			this.addEventListener(Event.ADDED_TO_STAGE, addToStageHandler);
 			this.addEventListener(Event.REMOVED_FROM_STAGE, removeFromeStageHandler);
 			
@@ -148,7 +149,7 @@
 		}
 		
 		public function setWeightNum(weight:Number):void {
-				Object(this).weightnum.text = weight.toString() + " kgw";
+			Object(this).weightnum.text = weight.toString() + " kgw";
 		}
 		
 		public function addToStageHandler(e:Event):void {
