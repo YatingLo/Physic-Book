@@ -8,13 +8,11 @@ package objects
 	public class Topic extends Sprite
 	{
 		public var qq:TextField;
-		//private var formate:TextFormat = new TextFormat();
 		public var ans1:AnsOption;
 		public var ans2:AnsOption;
 		public var ans3:AnsOption;
 		public var ans:String = new String();
 		public var request:Request = new Request();
-		//public var request:Request;
 		
 		public function Topic()
 		{

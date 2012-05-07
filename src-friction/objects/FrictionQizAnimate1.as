@@ -9,9 +9,9 @@
 	public class FrictionQizAnimate1 extends MovieClip {
 		
 		public var box:Box;
-		public var btn_oil:SimpleButton;
-		public var btn_extend:SimpleButton;
-		public var btn_wheel:SimpleButton;
+		public var btn_oil;
+		public var btn_extend;
+		public var btn_wheel;
 		public var moveSpeed:TextField;
 		
 		private const speedExtend:Number = 0.01; 

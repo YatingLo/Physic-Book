@@ -125,6 +125,7 @@
 				this.frictionStatic = this.frictionMove;
 				accX = (force - frictionMove) / weight;
 			}
+			trace("acc: "+accX);
 		}
 	}
 	

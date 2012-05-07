@@ -1,6 +1,9 @@
 ﻿package scene {
 	
 	import adobe.utils.CustomActions;
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
+	import objects.MyButton;
 	
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
@@ -16,6 +19,7 @@
 	import objects.Topic;
 	import objects.frictionQizAnimate2;
 	import objects.frictionQizAnimate3;
+	import fl.motion.MotionEvent;
 
 	
 	public class FrictionQiz extends MovieClip {
@@ -23,10 +27,13 @@
 		public var topic:Topic;
 		public var btn_pre:SimpleButton;
 		public var btn_next:SimpleButton;
-		public var btn_play:SimpleButton;
+		public var btn_play:MyButton;
 		public var mc1:FrictionQizAnimate1;
 		public var mc2:frictionQizAnimate2;
 		public var mc3:frictionQizAnimate3;
+		
+		private var snd:Sound = new Sound();
+        private var channel:SoundChannel = new SoundChannel();
 		
 		//問答題內容設定
 		private var xmlLoader:URLLoader;
@@ -54,10 +61,14 @@
 	/*#################################*/	
 		
 		public function FrictionQiz() {
-			//this.LoadXml();
+			//問題顯示
 			this.setQuestion(0);
-			//this.btn_pre.enabled = false;
-			//this.btn_pre.visible = false;
+			
+			/*音效設定
+			 */
+			this.snd.load(new URLRequest("back_sound.MP3"));
+			this.addEventListener(Event.ADDED_TO_STAGE, addToStageHandler);
+			this.addEventListener(Event.REMOVED_FROM_STAGE, removeFromeStageHandler);
 		}
 		
 		public function LoadXml():void {
@@ -89,6 +100,15 @@
 				break;
 				default:
 			}
+		}
+		
+		//音效設定
+		public function addToStageHandler(e:Event):void {
+			this.channel = this.snd.play(0, 100);
+		}
+		
+		public function removeFromeStageHandler(e:Event):void {
+			this.channel.stop();
 		}
 		
 		/*

@@ -1,6 +1,9 @@
 ﻿package scene {
 	
 	import flash.display.MovieClip;
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
+	import flash.net.URLRequest;
 	import flash.text.TextFormat;
 	import objects.Floor;
 	import objects.MoveBox;
@@ -9,6 +12,7 @@
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.display.SimpleButton;
+	import objects.MyButton;
 	
 	public class FrictionAnimate extends MovieClip {
 		
@@ -18,17 +22,17 @@
 		public var sand_btn:SimpleButton;
 		public var weightup_btn:SimpleButton;
 		public var weightdown_btn:SimpleButton;
-		public var play_btn:MovieClip;
+		//public var play_btn:MyButton;
 		public var weightnum:TextField;
 		public var dataShow:TextField;
-		//public var weightnum:TextField = new TextField();
-		//public var dataShow:TextField = new TextField();
 		private var formate:TextFormat = new TextFormat();
 		public var box:MoveBox;
 		
+		private var snd:Sound = new Sound();
+        private var channel:SoundChannel = new SoundChannel();
+		
 		public function FrictionAnimate() {
 			this.setWeightNum(box.getWeight);
-
 			Object(this).play_btn.addEventListener(MouseEvent.MOUSE_UP, playHandle);
 			this.box.addEventListener(Event.ENTER_FRAME, animateHandle);
 			Object(this).iron_btn.addEventListener(MouseEvent.MOUSE_UP, ironfloor);
@@ -37,38 +41,19 @@
 			Object(this).weightup_btn.addEventListener(MouseEvent.MOUSE_UP, weightup);
 			Object(this).weightdown_btn.addEventListener(MouseEvent.MOUSE_UP, weightdown);
 			
+			
+			
+			/*音效設定
+			 */
+			this.snd.load(new URLRequest("back_sound.MP3"));
+			this.addEventListener(Event.ADDED_TO_STAGE, addToStageHandler);
+			this.addEventListener(Event.REMOVED_FROM_STAGE, removeFromeStageHandler);
+			
 			/*
 			 * 字型設定
-			
-			formate.size = 25;
-			formate.color = 0x000000;
-			formate.font = "foo";
-			formate.align = "center";
 			*/
 			this.weightnum.embedFonts = true;
 			this.dataShow.embedFonts = true;
-			
-			/*
-			 * 數字顯示的位置
-			
-			this.weightnum.width = 153.3;
-			this.weightnum.height = 84;
-			this.weightnum.x = 137.9;
-			this.weightnum.y = 654.6;
-			this.weightnum.embedFonts = true;
-			this.weightnum.text = "xxxx";
-			this.weightnum.setTextFormat(this.formate);
-			this.addChild(this.weightnum);
-			
-			this.dataShow.width = 491.8;
-			this.dataShow.height = 302.8;
-			this.dataShow.x = 53.95;
-			this.dataShow.y = 11.1;
-			this.dataShow.embedFonts = true;
-			this.weightnum.text = "xxxxx";
-			this.dataShow.setTextFormat(this.formate);
-			this.addChild(this.dataShow);
-			 */
 		}
 		
 		public function weightdown(e:Event):void {
@@ -129,6 +114,7 @@
 			{
 				//trace(""+this.play_btn.currentFrameLabel);
 				case "play":
+					play_btn.ShiningDisabled();
 					play_btn.gotoAndStop("pause");
 					box.moveEnabled();
 				break;
@@ -163,6 +149,14 @@
 		
 		public function setWeightNum(weight:Number):void {
 				Object(this).weightnum.text = weight.toString() + " kgw";
+		}
+		
+		public function addToStageHandler(e:Event):void {
+			this.channel = this.snd.play(0, 100);
+		}
+		
+		public function removeFromeStageHandler(e:Event):void {
+			this.channel.stop();
 		}
 		
 		public function trans(num, precision = 0, splitCharacter = null)

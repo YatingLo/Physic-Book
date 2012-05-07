@@ -20,9 +20,9 @@
 		}
 		
 		private function init():void {
-			this.btn_slope1.addEventListener(MouseEvent.CLICK, slopeOne, false, 0, true);
-			this.btn_slope2.addEventListener(MouseEvent.CLICK, slopeTwo, false, 0, true);
-			this.btn_slope3.addEventListener(MouseEvent.CLICK, slopeThree, false, 0, true);
+			this.btn_slope1.addEventListener(MouseEvent.MOUSE_UP, slopeOne, false, 0, true);
+			this.btn_slope2.addEventListener(MouseEvent.MOUSE_UP, slopeTwo, false, 0, true);
+			this.btn_slope3.addEventListener(MouseEvent.MOUSE_UP, slopeThree, false, 0, true);
 			this.addEventListener(Event.ENTER_FRAME, enterFramHandler, false, 0, true);
 			//this.btn_play.addEventListener(MouseEvent.CLICK, btnPlay, false, 0, true);
 			this.slopeBox.box.setForce(30);
